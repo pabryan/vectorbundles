@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\title[Nonsense]
+\title[Pull-back Bundle Nonsense]
  {Nonsense On Pull-back Bundles and Connections}
 
 \curraddr{}
@@ -19,25 +19,31 @@
 
 \section{Pull Back Bundle}
 
-Let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle. Given a smooth map \(f : M \to N\), there is a smooth vector bundle, the \emph{pull-back bundle} \(f^{\ast} \pi : f^{\ast}E \to M\) whose sections over an open set \(U  \subset M\) are
+Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
+
+\begin{lemma}[Pull-back Bundle]
+There exists a unique (up to vector bundle isomorphism) smooth vector bundle, the \emph{pull-back bundle} \(f^{\ast} \pi : f^{\ast}E \to M\) whose sections over an open set \(U  \subset M\) are
 \[
 \Gamma(U, f^{\ast} E) = \{s : U \to E | \pi^E \circ s = f\}.
 \]
+\end{lemma}
 
-Given a section \(s \in \Gamma(V, E)\) of \(E\), we can pull it back to \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) whose definition is,
+\begin{defn}
+Given a section \(s \in \Gamma(V, E)\) of \(E\), we define the pull-back \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) by
 \[
 f^{\ast} (x) = s(f(x)), x \in f^{-1}(V).
 \]
+\end{defn}
 
-While it is not true that in general, a local section \(S\) of \(f^{\ast} E\) is equal to a pull-back section \(f^{\ast} s\), it is true that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections. That is, any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha})\) where \(V_{\alpha}\) trivialise \(E\).
-
-Then for each \(\alpha\), we have a local frame. \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) and \(\{f^{\ast} s^{\alpha}_i\}\) generate \(\Gamma(U_{\alpha}, f^{\ast} E\) in that any section \(S \in \Gamma(U_{\alpha}, f^{\ast} E)\) may be written,
+\begin{rem}
+In general, a local section \(S\) of \(f^{\ast} E\) is not equal to a pull-back section \(f^{\ast} s\), it is true that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections. That is, any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha})\) where \(V_{\alpha}\) trivialise \(E\). Then for each \(\alpha\), we have a local frame. \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) any section \(S \in \Gamma(U, f^{\ast} E)\) may be written over \(U \cap U_{\alpha}\) as
 \[
 S(x) = G^i(x) s^{\alpha}_i(x)
 \]
 for smooth functions \(G^i \in C^{\infty}(U_{\alpha}, \R)\). It's important to note here that in general, \(G^i \ne f^{\ast} g^i\) for smooth functions \(g^i\) (otherwise we would have \(S = f^{\ast} s\) where \(s = G^i s^{\alpha}_i\).
 
 In the particular case that \(f\) is an immersion, any smooth function \(G : U \to \R\) may be locally extended to \(g : V \to \R\) in the sense that \(G = f^{\ast} g\) along the open set \(f^{-1}(V) \cap U\), but not in general globally. If \(f\) is an embedding, \(G = f^{\ast} g\) for \(g\) a smooth function on a neighbourhood of \(F(M)\). Thus, in the case of an immersion, all sections \(S \in \Gamma(U, f^{\ast} E)\) are locally pull-backs \(S = f^{\ast} s\). For an embedding, all sections \(S \in \Gamma(U, f^{\ast} E)\) are globally pull-backs \(S = f^{\ast} s\). Once more, let us emphasise the point that for a general smooth map, \(f: M \to N\) sections of the pull-back bundle cannot even be written locally as pull-back sections.
+\end{rem}
 
 \begin{example}
 A particular example is the tangent bundle, \(TN \to N\). In this case, we get a bundle map,
