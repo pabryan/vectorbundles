@@ -17,6 +17,74 @@
 
 \maketitle
 
+\section{Connections}
+
+\begin{defn}
+An affine connection \(D\) on a vector bundle \(E \to N\) is a map
+\[
+\nabla : \Gamma(E) \to \Gamma(T^{\ast} N \otimes E)
+\]
+satisfying the Leibniz rule,
+\[
+\nabla (f s) = df \otimes s + s \nabla s.
+\]
+\end{defn}
+
+There is way of interpreting connctions a little differently, in terms of \emph{Ehresmann Connections}. For a smooth, vector bundle \(\pi^E : E \to N\), the map \(\pi^E\) is, in particular a smooth map hence has a differential, \(d\pi^E : TE \to TN\). As a smooth manifold \(E\) has dimension \(k+n\) where \(n = \operatorname{dim} (N)\). As a smooth map, \(\pi^E\) is a submersion hence \(d\pi^E\) has constant rank \(k\) everywhere and it's kernel is a smooth vector sub-bundle of \(TE\) over \(E\).
+
+\begin{defn}
+The \emph{vertical bundle} \(VE\) of \(TE\) is defined as
+\[
+VE = \operatorname{ker} d\pi^E.
+\]
+A \emph{horizontal bundle} is any complmentary sub-bundle \(HE \subset TE\) to \(VE\); that is,
+\[
+TE \simeq VE \oplus HE.
+\]
+\end{defn}
+
+\begin{defn}
+A \emph{Ehresmann Connection} \(H\) on \(E\) is a horizontal bundle of \(TE\).
+\end{defn}
+
+The next lemma relates the notion of Affine Connection \(D\) to horizontal sub-bundle \(H\).
+
+\begin{lemma}
+There is a one-to-one correspondence between Affine Connections \(D\) on \(E\) and horizontal sub-bundles \(H\) of \(TE\).
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+We need yet more theory, interpreting connections as sections of \emph{Jet Bundles}.
+
+\begin{defn}
+Jet Bundle.
+\end{defn}
+
+\section{Curvature}
+
+For affine connections:
+
+\begin{defn}
+\[
+R(X, Y) s = D_X D_Y s - D_Y D_X s - D_{[X, Y]} s.
+\]
+\end{defn}
+
+For Ehrassmen connections:
+
+\begin{defn}
+Maurer-Cartan Form.
+\end{defn}
+
+For Jet Bundles:
+
+\begin{defn}
+Not sure yet.
+\end{defn}
+
 \section{Pull Back Bundle}
 
 Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
@@ -29,20 +97,22 @@ There exists a unique (up to vector bundle isomorphism) smooth vector bundle, th
 \end{lemma}
 
 \begin{defn}
-Given a section \(s \in \Gamma(V, E)\) of \(E\), we define the pull-back \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) by
+Given an open set \(V \subset N\) and a section \(s \in \Gamma(V, E)\) of \(E\), we define the pull-back \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) by
 \[
-f^{\ast} (x) = s(f(x)), x \in f^{-1}(V).
+f^{\ast} (x) = s(f(x)), \quad x \in f^{-1}(V).
 \]
 \end{defn}
 
 \begin{rem}
-In general, a local section \(S\) of \(f^{\ast} E\) is not equal to a pull-back section \(f^{\ast} s\), it is true that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections. That is, any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha})\) where \(V_{\alpha}\) trivialise \(E\). Then for each \(\alpha\), we have a local frame. \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) any section \(S \in \Gamma(U, f^{\ast} E)\) may be written over \(U \cap U_{\alpha}\) as
+In general, a local section \(S\) of \(f^{\ast} E\) is not equal to any pull-back section \(f^{\ast} s\). It is true however, that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections: any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha}) \cap U\) where \(V_{\alpha}\) trivialise \(E\). Then for each \(\alpha\), we have a local frame \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) over \(V_{\alpha}\) and any section \(S \in \Gamma(U, f^{\ast} E)\) may be written over \(U_{\alpha}\) as
 \[
-S(x) = G^i(x) s^{\alpha}_i(x)
+S(x) = G^i(x) f^{\ast} s^{\alpha}_i(x)
 \]
-for smooth functions \(G^i \in C^{\infty}(U_{\alpha}, \R)\). It's important to note here that in general, \(G^i \ne f^{\ast} g^i\) for smooth functions \(g^i\) (otherwise we would have \(S = f^{\ast} s\) where \(s = G^i s^{\alpha}_i\).
+for smooth functions \(G^i \in C^{\infty}(U_{\alpha}, \R)\). It's important to note here that in general, \(G^i \ne f^{\ast} g^i\) for smooth functions \(g^i\) - otherwise we would have \(S = f^{\ast} s\) where \(s = g^i s^{\alpha}_i\).
 
-In the particular case that \(f\) is an immersion, any smooth function \(G : U \to \R\) may be locally extended to \(g : V \to \R\) in the sense that \(G = f^{\ast} g\) along the open set \(f^{-1}(V) \cap U\), but not in general globally. If \(f\) is an embedding, \(G = f^{\ast} g\) for \(g\) a smooth function on a neighbourhood of \(F(M)\). Thus, in the case of an immersion, all sections \(S \in \Gamma(U, f^{\ast} E)\) are locally pull-backs \(S = f^{\ast} s\). For an embedding, all sections \(S \in \Gamma(U, f^{\ast} E)\) are globally pull-backs \(S = f^{\ast} s\). Once more, let us emphasise the point that for a general smooth map, \(f: M \to N\) sections of the pull-back bundle cannot even be written locally as pull-back sections.
+In the particular case that \(f\) is an immersion, any smooth function \(G : U \to \R\) may be locally extended to \(g : V \to \R\) in the sense that \(G = f^{\ast} g\) along the open set \(f^{-1}(V) \cap U\), but not in general globally. If \(f\) is an embedding, then the extension \(G = f^{\ast} g\) for \(g\) a smooth function \(N \to \R\) can be done globally. Thus, in the case of an immersion, all sections \(S \in \Gamma(U, f^{\ast} E)\) are locally pull-backs \(S = f^{\ast} s\). For an embedding, all sections \(S \in \Gamma(U, f^{\ast} E)\) are globally pull-backs \(S = f^{\ast} s\).
+
+Once more, let us emphasise the point that for a general smooth map, \(f: M \to N\) sections of the pull-back bundle cannot even be written locally as pull-back sections but as a linear combination of pull back sections where the coefficients are smooth functions on \(M\).
 \end{rem}
 
 \begin{example}
@@ -53,43 +123,107 @@ X &\mapsto df \cdot X,
 \end{align*}
 that is,
 \[
-(f_{\ast} X) (x) = df_{x} \cdot X(x).
+(f_{\ast} X) (x) = df_{x} \cdot X(x), \quad x \in M.
 \]
 
-As noted above, \(f^{\ast} X\) so defined will not in general be extendable, even locally to a vector field on \(N\), but it does define a section of the pull-back bundle. If \(f\) is an embedding, \(f_{\ast} X\) may extended globally to vector field on a neighbourhood of \(f(M)\), and if \(f\) is an immersion, such an extension is possible locally.
+As noted above, \(f^{\ast} X\) so defined will not in general be extendable, even locally to a vector field on \(N\), but it does define a section of the pull-back bundle. If \(f\) is an embedding, \(f_{\ast} X\) may be extended globally to vector field on \(N\), and if \(f\) is an immersion, such an extension is possible locally.
 
 For immersions, by definition \(df_x\) is injective at each \(x\) and so we see that \(f_{\ast}\) is an injective as a bundle map and hence,
 \[
-f_{\ast} (TM) \hookrightarrow f^{\ast} TN
+f_{\ast} : TM \hookrightarrow f^{\ast} TN
 \]
-realises \(TM\) as isomorphic to a sub-bundle of \(f^{\ast} TN\).
+realises \(TM\) as isomorphic to the sub-bundle of \(f_{\ast} (TM) \subset f^{\ast} TN\).
 
-The normal bundle \(\nu M\) is defined as the quotient bundle \(f^{\ast} TN/\nu M\) which gives an exact sequence,
+The normal bundle \(\nu M\) is defined as the quotient bundle \(f^{\ast} TN/TM\) through the exact sequence,
 \[
 0 \to TM \overset{f_{\ast}}{\to} f^{\ast} TN \to \nu M \to 0
 \]
 of vector bundles
 
-If \(TN\) has a metric, then the metric splits the exact sequence. That is we have the orthogonal decomposition,
+If \(TN\) has a metric \(g\), then the metric splits the exact sequence. That is we have the orthogonal decomposition,
 \[
 f^{\ast} TN \simeq TM \oplus \nu M
 \]
-and we have an inclusion,
+and an inclusion,
 \[
-\nu M \to f^{\ast} TN.
+\nu M \hookrightarrow f^{\ast} TN
+\]
+with
+\[
+\nu M = \{Z \in f^{\ast}TN : g(Z, f_{\ast} X) = 0 \quad \forall X \in TM\}.
 \]
 \end{example}
 
 \section{Connections on Pull-back Bundles}
 
-Suppose now our vector bundle \(\pi^E : E \to N\) has a connection \(D\). There are a couple of equivalent ways to define the pull back connection \(f^{\ast} D\) on \(f^{\ast} E\). The defining property of the pull-back connection is,
+Suppose now our vector bundle \(\pi^E : E \to N\) has a connection \(D\). There are several ways to define the pull back connection \(f^{\ast} D\) on \(f^{\ast} E\), but whatever method we choose, the pull-back bundle may be characterised by a defining property.
+
+\begin{lemma}
+\label{lem:pullback_connection}
+There is a unique connection, \(f^{\ast} D\), the \emph{pull-back connection} on the vector bundle \(\pi^{f^{\ast} E} : f^{\ast}E \to M\) satisfying
 \[
 (f^{\ast} D)_X f^{\ast} s = D_{f_{\ast} X} s
 \]
-for any tangent vector \(X \in TM\). The point now is to show,
+for any tangent vector \(X \in TM\) an any local section \(s \in \Gamma(V, E)\).
+\end{lemma}
+
+The point now is to show,
 \begin{enumerate}
 \item \(f^{\ast} D\) is well defined,
 \item \(f^{\ast} D\) is the unique connection with the above property.
 \end{enumerate}
 
+First, let us prove uniqueness.
+
+\begin{proof}[Proof of Uniqueness]
+Suppose we have a connection \(\nabla\) on \(f^{\ast} E\) that acts on pull-back sections by,
+\[
+\nabla_X f^{\ast} s = D_{f_{\ast} X} s.
+\]
+For an arbitrary section \(S \in f^{\ast} E\), choose a local frame \(\{s_i\} \in \Gamma(V, E)\) and write,
+\[
+S = G^i f^{\ast} s_i.
+\]
+By the Leibniz rule, and the action of \(\nabla\) on pull-back sections, we must have
+\[
+\nabla_X S = X (G^i) f^{\ast} s_i + G_i D_{f_{\ast} X} s_i.
+\]
+The right hand side uniquely determines \(\nabla\).
+\end{proof}
+
+We offer up three proofs for existence.
+
+\begin{proof}[Proof of \Cref{lem:pullback_connection} by local generation]
+As in the proof of uniqueness, for an arbitrary section \(S \in f^{\ast} E\), choose a local frame \(\{s_i\} \in \Gamma(V, E)\) and write,
+\[
+S = G^i f^{\ast} s_i.
+\]
+and define,
+\[
+(f^{\ast} D)_X S = X (G^i) f^{\ast} s_i + G_i D_{f_{\ast} X} s_i.
+\]
+
+We need to verify \(f^{\ast} D\) is well defined. That is, if we choose another frame \(\{s'_i\}\) and write, \(S = (G')^i f^{\ast} s\_i\) then we need
+\[
+X (G^i) f^{\ast} s_i + G^i D_{f_{\ast} X} s_i = X ((G')^i) f^{\ast} s'_i + (G')^i D_{f_{\ast} X} s'_i.
+\]
+Our two frames \(\{s_i\}\) and \(\{s'_i\}\) are related by a change of frame, \(s'_i = \tau^j_i s_j\) and the result follows since \(D\) is a connection ensuring the right hand side transfoms correctly to the left hand side. This is one of those situations where the reader should check this last claim for themselves to truly believe it!
+\end{proof}
+
+The next proof is in terms of Ehresmann Connections.
+
+\begin{proof}[Proof of \Cref{lem:pullback_connection} by horizontal sub-bundles]
+For an affine conection \(D\), let \(H_D\) denote the corresponding horizontal sub-bundle. Then \(f^{\ast} D\) is the affine connection corresponding to the horizontal sub-bundle, \(f^{\ast} H\).
+\end{proof}
+
+Finally, our third proof is in terms of Jet Bundles.
+
+\begin{proof}[Proof of \Cref{lem:pullback_connection} by jets]
+For an affine connection, \(D\), let \(J_D\) be the corresponding section of \(J_1(E) \to N\). The pull-back connection is simply the affine connection determined by the pull-back section,
+\[
+f^{\ast} J_D \in \Gamma(f^{\ast} J_1(E)) = \Gamma(J_1(f^{\ast}(E))).
+\]
+\end{proof}
+
+\section{Extrinsic Curvature}
 \end{document}
