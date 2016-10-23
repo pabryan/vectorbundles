@@ -4,8 +4,8 @@
 
 \begin{document}
 
-\title[]
- {}
+\title[Nonsense]
+ {Nonsense On Pull-back Bundles and Connections}
 
 \curraddr{}
 \email{}
@@ -15,13 +15,75 @@
 \subjclass[2010]{}
 \keywords{}
 
-\begin{abstract}
-\end{abstract}
-
 \maketitle
 
-\section{Introduction}
-\label{sec:intro}
+\section{Pull Back Bundle}
 
+Let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle. Given a smooth map \(f : M \to N\), there is a smooth vector bundle, the \emph{pull-back bundle} \(f^{\ast} \pi : f^{\ast}E \to M\) whose sections over an open set \(U  \subset M\) are
+\[
+\Gamma(U, f^{\ast} E) = \{s : U \to E | \pi^E \circ s = f\}.
+\]
+
+Given a section \(s \in \Gamma(V, E)\) of \(E\), we can pull it back to \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) whose definition is,
+\[
+f^{\ast} (x) = s(f(x)), x \in f^{-1}(V).
+\]
+
+While it is not true that in general, a local section \(S\) of \(f^{\ast} E\) is equal to a pull-back section \(f^{\ast} s\), it is true that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections. That is, any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha})\) where \(V_{\alpha}\) trivialise \(E\).
+
+Then for each \(\alpha\), we have a local frame. \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) and \(\{f^{\ast} s^{\alpha}_i\}\) generate \(\Gamma(U_{\alpha}, f^{\ast} E\) in that any section \(S \in \Gamma(U_{\alpha}, f^{\ast} E)\) may be written,
+\[
+S(x) = G^i(x) s^{\alpha}_i(x)
+\]
+for smooth functions \(G^i \in C^{\infty}(U_{\alpha}, \R)\). It's important to note here that in general, \(G^i \ne f^{\ast} g^i\) for smooth functions \(g^i\) (otherwise we would have \(S = f^{\ast} s\) where \(s = G^i s^{\alpha}_i\).
+
+In the particular case that \(f\) is an immersion, any smooth function \(G : U \to \R\) may be locally extended to \(g : V \to \R\) in the sense that \(G = f^{\ast} g\) along the open set \(f^{-1}(V) \cap U\), but not in general globally. If \(f\) is an embedding, \(G = f^{\ast} g\) for \(g\) a smooth function on a neighbourhood of \(F(M)\). Thus, in the case of an immersion, all sections \(S \in \Gamma(U, f^{\ast} E)\) are locally pull-backs \(S = f^{\ast} s\). For an embedding, all sections \(S \in \Gamma(U, f^{\ast} E)\) are globally pull-backs \(S = f^{\ast} s\). Once more, let us emphasise the point that for a general smooth map, \(f: M \to N\) sections of the pull-back bundle cannot even be written locally as pull-back sections.
+
+\begin{example}
+A particular example is the tangent bundle, \(TN \to N\). In this case, we get a bundle map,
+\begin{align*}
+f_{\ast} : TM &\to f^{\ast} TN \\
+X &\mapsto df \cdot X,
+\end{align*}
+that is,
+\[
+(f_{\ast} X) (x) = df_{x} \cdot X(x).
+\]
+
+As noted above, \(f^{\ast} X\) so defined will not in general be extendable, even locally to a vector field on \(N\), but it does define a section of the pull-back bundle. If \(f\) is an embedding, \(f_{\ast} X\) may extended globally to vector field on a neighbourhood of \(f(M)\), and if \(f\) is an immersion, such an extension is possible locally.
+
+For immersions, by definition \(df_x\) is injective at each \(x\) and so we see that \(f_{\ast}\) is an injective as a bundle map and hence,
+\[
+f_{\ast} (TM) \hookrightarrow f^{\ast} TN
+\]
+realises \(TM\) as isomorphic to a sub-bundle of \(f^{\ast} TN\).
+
+The normal bundle \(\nu M\) is defined as the quotient bundle \(f^{\ast} TN/\nu M\) which gives an exact sequence,
+\[
+0 \to TM \overset{f_{\ast}}{\to} f^{\ast} TN \to \nu M \to 0
+\]
+of vector bundles
+
+If \(TN\) has a metric, then the metric splits the exact sequence. That is we have the orthogonal decomposition,
+\[
+f^{\ast} TN \simeq TM \oplus \nu M
+\]
+and we have an inclusion,
+\[
+\nu M \to f^{\ast} TN.
+\]
+\end{example}
+
+\section{Connections on Pull-back Bundles}
+
+Suppose now our vector bundle \(\pi^E : E \to N\) has a connection \(D\). There are a couple of equivalent ways to define the pull back connection \(f^{\ast} D\) on \(f^{\ast} E\). The defining property of the pull-back connection is,
+\[
+(f^{\ast} D)_X f^{\ast} s = D_{f_{\ast} X} s
+\]
+for any tangent vector \(X \in TM\). The point now is to show,
+\begin{enumerate}
+\item \(f^{\ast} D\) is well defined,
+\item \(f^{\ast} D\) is the unique connection with the above property.
+\end{enumerate}
 
 \end{document}
