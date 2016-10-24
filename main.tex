@@ -17,6 +17,128 @@
 
 \maketitle
 
+Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
+
+\section{Vector Bundles and Sheaf of Sections}
+
+\begin{defn}
+Given a smooth, vector bundle \(\pi^E : E \to N\), we define the sheaf of sections \(\Gamma(E)\) as follows: for each open set \(U \subseteq N\), define the \emph{local sections} of \(E\) over \(U\) by
+\[
+\Gamma(U, E) = \{s : U \to E : \pi^E \circ s = \operatorname{Id}_N\}.
+\]
+For any pair of open sets, \(V \subseteq U \subseteq N\), define the \emph{restriction maps}, \(r_{V,U} : \Gamma(U, E) \to \Gamma(V, E)\) for \(s \in \Gamma(U, E)\) by,
+\[
+(r_{V,U} (s)) (x) = s(x), \quad x \in V.
+\]
+The sheaf of sections, \(\Gamma(E)\) is the collection \(\{\Gamma(U, E), r_{V,U}\}\) of local sections and restriction maps.
+\end{defn}
+
+\begin{rem}
+The restriction maps \(r_{V,U}\) satisfy the \emph{Pre-sheaf axioms}:
+\begin{enumerate}
+\item \(r_{U,U} = \operatorname{Id}\).
+\item For \(W \subseteq V \subseteq U\), \(r_{W,U} = r_{W,V} \circ r_{V,U}\).
+\end{enumerate}
+and the \emph{Sheaf axioms}:
+\begin{enumerate}
+\item (Locality) If \(s, t \in \Gamma(U, E)\) and \(\{U_{\alpha}\}\) is an open cover of \(U\) such that \(r_{U_{\alpha},U} s = r_{U_{\alpha},U} t\), then \(s = t\).
+\item (Gluing) If \(\{U_{\alpha}\}\) is an open cover of \(U\) and there are sections \(s_{\alpha} \in \Gamma(U_{\alpha}, E)\) for each \(\alpha\) such that \(r_{U_{\alpha} \cap U_{\beta},U_{\alpha}} s_{\alpha} = r_{U_{\alpha} \cap U_{\beta},U_{\beta}} s_{\beta}\), then there exists \(s \in \Gamma(U, E)\) such that \(r_{U_{\alpha},U} s = s_{\alpha}\) for each \(\alpha\).
+\end{enumerate}
+\end{rem}
+
+\begin{defn}
+For vector bundles, \(E \to N\) and \(F \to N\) a \emph{local map} \(\varphi : \Gamma(E) \to \Gamma(F)\) is a collection of smooth maps, \(\varphi_U : \Gamma(E, U) \to \Gamma(F, U)\) such that,
+\[
+\varphi_V \circ r^E_{V, U} = r^F_{V, U} \circ \varphi_U
+\]
+for any pair of open sets \(V \subset U \subset N\).
+\end{defn}
+
+\begin{example}
+A vector bundle map is smooth map \(\varphi : E \to F\) such that,
+\[
+\pi^F \circ \varphi = \pi^E
+\]
+and such that,
+\[
+\varphi_x : E_x \to F_x
+\]
+is linear, where \(\varphi_x = \varphi|_{E_x}\) is the restriction of \(\varphi\) to the fibre \(E_x\).
+
+For any open set \(U\) we may then define,
+\[
+(\varphi_U (s)) (x) = \varphi \circ s (x) = \varphi_x(s(x))
+\]
+for \(x \in U\). It's a simple matter to verify that the collection \(\{\varphi_U\}\) defines a local map \(\Gamma(E) \to \Gamma(F)\).
+\end{example}
+
+\begin{rem}
+The previous example shows that any vector bundle map is a local map. The converse is not true. That is, there exist local maps that are not induced by bundle maps. Note that if \(\varphi : \Gamma(E) \to \Gamma(F)\) is a local map, we might try to define,
+\[
+\varphi(e) = (\varphi_U s) (\pi^E(e)), \quad e \in E
+\]
+where \(U \subset N\) is an open neighbourhood of \(x = \pi^E(e)\) and \(s \in \Gamma(U, E)\) is any local section such that \(s(\pi^E(e)) = e\). Working in a local trivialistion, it's easy to construct such a section \(s\). The problem is that the result will in general depend on the choice of \(s\) as illustrated by the next example.
+\end{rem}
+
+\begin{example}
+Let \(N = \R\) and \(E = \R \times \R\) with projection \(\pi^E = \pi^1 : \R \times \R \to \R\) onto the first factor. A local section \(s \in \Gamma(U, E)\) is a map \(s : U \to \R \times \R\) such that \(\pi^1 \circ s (x) = x\) so that we may write,
+\[
+s(x) = (x, f_s(x))
+\]
+where \(f_s : U \to \R\) is a smooth function. Define the derivative local operator \(D : \Gamma(E) \to \Gamma(E)\) by,
+\[
+(D s) (x) = (x, f_s'(x))
+\]
+where \(f_s'\) is the derivative of \(f_s\). Then it's easily checked that \(D\) is a local operator. However, value of \(D s\) at \(x\) depends on \(s\) is a full neighbourhood of \(x\) and so the attempted construction in the remark fails.
+
+An explicit example of the failure is as follows: let \(e = (0, 0) \in E\) and define sections \(t,s \in \Gamma(\R, E)\) by
+\[
+s(x) = (x, x), \quad t(x) = (x, x^2).
+\]
+Then
+\[
+s(\pi^E(e)) = s(0) = (0,0) = e = t(\pi^E(e)),
+\]
+but
+\[
+(D s) (\pi^E(e)) = (0, 1) \ne (0, 0) = (D t) (\pi^E(e)).
+\]
+That is, we just used the simple fact that two smooth functions may have the same value at a point, but different derivatives.
+\end{example}
+
+The previous remark and example show that local maps depend on the value of a section in a neighbourhood of a point and not just the value of the section at a point. The example given is the prototypical example for us, where a local map is a differential operator. A differential operator, though not pointwise dependent, is dependent only an arbitrarily small neighbourhood of a point. We can express this notion concisely via the \emph{stalks} of a sheaf which consist of the \emph{germs} of sections at each point \(x \in N\).
+
+\begin{defn}
+A \emph{germ} of sections at \(x\) is an equivalence class \([U, s]_x\) where \(U\) is an open neighbourhood of \(x\) and \(s \in \Gamma(U, E)\) is a local section. Two pairs \((U, s)\), \((V, t)\) are equivalent if there exists an open set \(W \subset U \cap V\) with \(x \in W\) and such that
+\[
+r_{W, U} s = r_{W, V} t.
+\]
+The \emph{stalk} \(\Gamma_x(E)\) of \(E\) at \(x\) is the set of germs, \([U, s]_x\) of sections at \(x\).
+\end{defn}
+
+Although as noted above, local operators in general are not determined by their values at a point, it is true that they only depend on the germ at a point. To see this first let us note that local operators give rise to operators of stalks.
+
+\begin{defn}
+Let \(\varphi : \Gamma(E) \to \Gamma(F)\) be a local operator. For \(x \in N\), the \emph{stalk map} \(\varphi_x : \Gamma_x(E) \to \Gamma_x (F)\) is defined by,
+\[
+\varphi_x ([U, s]_x) = [U, \varphi_U(s)]_x.
+\]
+\end{defn}
+
+It is an easy matter to see that the definition is well defined, independent of the choice of representative for the equivalence class. Now we may see that a local map is determined by it's stalk maps.
+
+\begin{lemma}
+Let \(\varphi, \psi : \Gamma(E) \to \Gamma(F)\) be local operators. Suppose that \(\varphi_x = \psi_x\) for every \(x \in N\). Then \(\varphi = \psi\).
+\end{lemma}
+
+\begin{proof}
+Straightforward (but necessary!) exercise.
+\end{proof}
+
+\begin{rem}
+If we have a vector bundle map \(\varphi : E \to F\), then we wrote \(\varphi_x\) for the fibre map and also for the stalk map. In this situation the two are in fact one and the same. This is yet another straightforward but necessary exercise.
+\end{rem}
+
 \section{Connections}
 
 \begin{defn}
