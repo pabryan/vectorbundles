@@ -254,24 +254,22 @@ Not sure yet.
 
 \section{Pull Back Bundle}
 
-Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
-
 \begin{lemma}[Pull-back Bundle]
-There exists a unique (up to vector bundle isomorphism) smooth vector bundle, the \emph{pull-back bundle} \(f^{\ast} \pi : f^{\ast}E \to M\) whose sections over an open set \(U  \subset M\) are
+There exists a unique (up to vector bundle isomorphism) smooth vector bundle, the \emph{pull-back bundle} \(f^{\ast} \pi : f^{\ast}E \to M\) whose sections over an open set \(U  \subseteq M\) are
 \[
 \Gamma(U, f^{\ast} E) = \{s : U \to E | \pi^E \circ s = f\}.
 \]
 \end{lemma}
 
 \begin{defn}
-Given an open set \(V \subset N\) and a section \(s \in \Gamma(V, E)\) of \(E\), we define the pull-back \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) by
+Given an open set \(V \subseteq N\) and a section \(s \in \Gamma(V, E)\) of \(E\), we define the pull-back \(f^{\ast} s \in \Gamma(f^{-1}(V), f^{\ast} E)\) by
 \[
 f^{\ast} (x) = s(f(x)), \quad x \in f^{-1}(V).
 \]
 \end{defn}
 
 \begin{rem}
-In general, a local section \(S\) of \(f^{\ast} E\) is not equal to any pull-back section \(f^{\ast} s\). It is true however, that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections: any open set \(U \subset M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha}) \cap U\) where \(V_{\alpha}\) trivialise \(E\). Then for each \(\alpha\), we have a local frame \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) over \(V_{\alpha}\) and any section \(S \in \Gamma(U, f^{\ast} E)\) may be written over \(U_{\alpha}\) as
+In general, a local section \(S\) of \(f^{\ast} E\) is not equal to any pull-back section \(f^{\ast} s\). It is true however, that the sections of \(f^{\ast} E\) are \emph{locally generated} by pull-back sections: any open set \(U \subseteq M\) is covered by sets \(U_{\alpha} = f^{-1}(V_{\alpha}) \cap U\) where \(V_{\alpha}\) trivialise \(E\). Then for each \(\alpha\), we have a local frame \(\{s^{\alpha}_i\}_{i=1}^k\) for \(E\) over \(V_{\alpha}\) and any section \(S \in \Gamma(U, f^{\ast} E)\) may be written over \(U_{\alpha}\) as
 \[
 S(x) = G^i(x) f^{\ast} s^{\alpha}_i(x)
 \]
@@ -299,7 +297,7 @@ For immersions, by definition \(df_x\) is injective at each \(x\) and so we see 
 \[
 f_{\ast} : TM \hookrightarrow f^{\ast} TN
 \]
-realises \(TM\) as isomorphic to the sub-bundle of \(f_{\ast} (TM) \subset f^{\ast} TN\).
+realises \(TM\) as isomorphic to the sub-bundle of \(f_{\ast} (TM) \subseteq f^{\ast} TN\).
 
 The normal bundle \(\nu M\) is defined as the quotient bundle \(f^{\ast} TN/TM\) through the exact sequence,
 \[
