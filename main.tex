@@ -17,9 +17,13 @@
 
 \maketitle
 
-Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
-
 \section{Vector Bundles and Sheaves of Sections}
+
+\subsection{Vector Bundles}
+
+Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle. Give basic definitions.
+
+\subsection{Sheaf of Sections}
 
 \begin{defn}
 Given a smooth, vector bundle \(\pi^E : E \to N\), we define the sheaf of sections \(\Gamma(E)\) as follows: for each open set \(U \subseteq N\), define the \emph{local sections} of \(E\) over \(U\) by
@@ -149,25 +153,56 @@ If we have a vector bundle map \(\varphi : E \to F\), then we wrote \(\varphi_x\
 
 \section{Connections}
 
+\subsection{Affine Connections}
+
 \begin{defn}
-An affine connection \(D\) on a vector bundle \(E \to N\) is a map
+An affine connection \(\nabla\) on a vector bundle \(\pi^E : E \to N\) is a local map
 \[
 \nabla : \Gamma(E) \to \Gamma(T^{\ast} N \otimes E)
 \]
 satisfying the Leibniz rule,
 \[
-\nabla (f s) = df \otimes s + s \nabla s.
+\nabla (f \otimes s) = df \otimes s + f \nabla s.
 \]
 \end{defn}
 
-There is way of interpreting connctions a little differently, in terms of \emph{Ehresmann Connections}. For a smooth, vector bundle \(\pi^E : E \to N\), the map \(\pi^E\) is, in particular a smooth map hence has a differential, \(d\pi^E : TE \to TN\). As a smooth manifold \(E\) has dimension \(k+n\) where \(n = \operatorname{dim} (N)\). As a smooth map, \(\pi^E\) is a submersion hence \(d\pi^E\) has constant rank \(k\) everywhere and it's kernel is a smooth vector sub-bundle of \(TE\) over \(E\).
+According to the definition of a local map, for each open set \(U\) we have a map,
+\[
+\nabla_U : \Gamma(U, E) \to \Gamma(U, T^{\ast} N \otimes E)
+\]
+compatible with the restriction maps so that,
+\[
+r_{V, U} \nabla_U s = \nabla_V r_{V, U} s
+\]
+whenever \(V \subseteq U\) and \(s \in \Gamma(U, E)\). The Leibniz rule here means that for any \(s \in \Gamma(U, E)\) and smooth function \(f : U \to \R\) we have,
+\[
+\nabla_U (fs) = d_U f \otimes s + f \nabla_U s
+\]
+where we recall that the differential \(d\) is a local map \(\Gamma(C^{\infty}(N)) \to \Gamma(T^{\ast} N)\), and the tensor product \(C^{\infty}(N, \R) \otimes E \simeq E\) with \(f \otimes s\) denoting the section \(x \mapsto f(x) s(x) \in E\).
+
+\begin{rem}
+Since \(\nabla s \in \Gamma(T^{\ast} N \otimes E)\), we can contract the \(T^{\ast} N\) part of \(\nabla s\) with a tangent vector \(X \in TN\), the result of which is in \(\Gamma(E)\). We write this contraction various ways:
+\[
+\nabla s (X) = \nabla_X s = \Tr (\nabla s \otimes X).
+\]
+
+By definition, \(\nabla_X s\) depends tensorialy on \(X\) and hence depends pointwise on \(X\) so that for example, if \(X, Y \in \Gamma(TM)\) such that \(X(x) = Y(x)\) then,
+\[
+(\nabla_X s) (x) = (\nabla_Y s) (x).
+\]
+Moreover, \((\nabla_X s) (x)\) depends only the stalk, \([s]_x\) of \(s\) at \(x\). Since \(\nabla\) is local however, and (because of the Leibniz rule) not a bundle map, \(\nabla_X s\) cannot be determined from the fibre, \(s_x\) of \(s\) at \(x\).
+\end{rem}
+
+\subsection{Ehresmann Connections}
+
+There is way of interpreting connections a little differently, in terms of \emph{Ehresmann Connections}. For a smooth, vector bundle \(\pi^E : E \to N\), the map \(\pi^E\) is, in particular a smooth map hence has a differential, \(d\pi^E : TE \to TN\). As a smooth manifold \(E\) has dimension \(k+n\) where \(n = \operatorname{dim} (N)\). As a smooth map, \(\pi^E\) is a submersion hence \(d\pi^E\) has constant rank \(k\) everywhere and it's kernel is a smooth vector sub-bundle of \(TE\) over \(E\).
 
 \begin{defn}
 The \emph{vertical bundle} \(VE\) of \(TE\) is defined as
 \[
 VE = \operatorname{ker} d\pi^E.
 \]
-A \emph{horizontal bundle} is any complmentary sub-bundle \(HE \subset TE\) to \(VE\); that is,
+A \emph{horizontal bundle} is any complmentary sub-bundle \(HE \subseteq TE\) to \(VE\); that is,
 \[
 TE \simeq VE \oplus HE.
 \]
@@ -186,6 +221,8 @@ There is a one-to-one correspondence between Affine Connections \(D\) on \(E\) a
 \begin{proof}
 
 \end{proof}
+
+\subsection{Connections as Sections of Jet Bundles}
 
 We need yet more theory, interpreting connections as sections of \emph{Jet Bundles}.
 
