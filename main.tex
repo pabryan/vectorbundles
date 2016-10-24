@@ -19,7 +19,7 @@
 
 Throughout, let \(\pi^E : E \to N\) be a smooth, rank \(k\), vector bundle and let \(f : M \to N\) be a smooth map.
 
-\section{Vector Bundles and Sheaf of Sections}
+\section{Vector Bundles and Sheaves of Sections}
 
 \begin{defn}
 Given a smooth, vector bundle \(\pi^E : E \to N\), we define the sheaf of sections \(\Gamma(E)\) as follows: for each open set \(U \subseteq N\), define the \emph{local sections} of \(E\) over \(U\) by
@@ -63,7 +63,7 @@ and such that,
 \[
 \varphi_x : E_x \to F_x
 \]
-is linear, where \(\varphi_x = \varphi|_{E_x}\) is the restriction of \(\varphi\) to the fibre \(E_x\).
+is linear, where \(\varphi_x = \varphi|_{E_x}\) is the restriction of \(\varphi\) to the fibre \(E_x = (\pi^E)^{-1}(x)\).
 
 For any open set \(U\) we may then define,
 \[
@@ -115,6 +115,14 @@ r_{W, U} s = r_{W, V} t.
 \]
 The \emph{stalk} \(\Gamma_x(E)\) of \(E\) at \(x\) is the set of germs, \([U, s]_x\) of sections at \(x\).
 \end{defn}
+
+\begin{rem}
+Recall that for \(x \in N\), the fibre \(E_x\), of \(E\) over \(x\) is,
+\[
+E_x = (\pi^E)^{-1} (x)
+\]
+which, via a local trivialisation, admits the structure of a \(k\)-dimensional vector space. Given a section \(s\), we have the fibre \(s_x = s(x) \in E_x\) of \(s\) at \(x\). Compare this with the germ - the fibre is pointwise, the germ depends on an arbitrarily small neighbourhood of \(x\).
+\end{rem}
 
 Although as noted above, local operators in general are not determined by their values at a point, it is true that they only depend on the germ at a point. To see this first let us note that local operators give rise to operators of stalks.
 
